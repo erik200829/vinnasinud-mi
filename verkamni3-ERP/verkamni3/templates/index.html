@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block title %}Forsíða{% endblock %}
+{% block content %}
+<h1>spuringar</h1>
+{% for b in blogs %}
+  <h2>{{ b.title }}</h2>
+  <p>{{ b.date }} - {{ b.author }}</p>
+  <div>{{ b.content|safe }}</div>
+  <hr>
+{% else %}
+  <p>Engar spuringar fundust.</p>
+{% endfor %}
+{% endblock %}
+

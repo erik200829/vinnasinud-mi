@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block title %}Admin{% endblock %}
+{% block content %}
+<h1>Ny login</h1>
+<form method="post">
+  <input type="text" name="title" placeholder="Titill" required><br>
+  <input type="text" name="author" placeholder="Nafn" required><br>
+  <textarea name="content" id="editor" placeholder="Texti"></textarea><br>
+  <button type="submit">Vista</button>
+</form>
+
+
+<script src="https://cdn.ckeditor.com/4.20.2/standard/ckeditor.js"></script>
+<script>CKEDITOR.replace('editor');</script>
+{% endblock %}
