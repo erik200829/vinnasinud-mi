@@ -9,7 +9,7 @@
   <p>Velkomin á síðuna mína.</p>
 
   <!-- Takkur sem fer á aðra síðu -->
-  <a href="verkamni5-lokaverkamni-ERP/verkamni5/verkamni5/app.py">
+  <a href="verkamni5-lokaverkamni-ERP/verkamni5/verkamni5/templates/index.html">
     <button>sinutæmi 1</button>
   </a>
   <a href="verkamni4-ERP/verkamni4/app.py">
