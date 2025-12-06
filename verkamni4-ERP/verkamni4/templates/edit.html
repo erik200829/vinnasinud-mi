@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>breyta profíl</h2>
+<form method="post">
+  <label>Nafn:</label>
+  <input type="text" name="name" value="{{ profile.name if profile else '' }}" required>
+  <label>Lysing:</label>
+  <textarea name="desc" required>{{ profile.desc if profile else '' }}</textarea>
+  <button type="submit">Vista</button>
+</form>
+{% endblock %}

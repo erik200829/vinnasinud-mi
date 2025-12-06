@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Leitarniðurstöður {% if query %} fyrir "{{ query }}"{% endif %}</h2>
+{% if results %}
+<div class="grid">
+  {% for item in results %}
+    <article>
+      <h3>{{ item['name'] }}</h3>
+      <a href="{{ url_for('show', id=item['id']) }}">
+        {% if item['image'] %}<img src="{{ item['image']['medium'] }}" alt="{{ item['name'] }}">{% endif %}
+      </a>
+    </article>
+  {% endfor %}
+</div>
+{% else %}<p>ekkert fundust.</p>{% endif %}
+{% endblock %}

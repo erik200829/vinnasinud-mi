@@ -1,0 +1,20 @@
+<nav>
+  <ul>
+    <li><a href="{{ url_for('index') }}">Forsiða</a></li>
+    <li><a href="{{ url_for('about') }}">Um mig</a></li>
+    <li>
+      <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="q" value="{{ query if query else '' }}" required>
+        <button type="submit">Leita</button>
+      </form>
+    </li>
+  </ul>
+
+  <div class="genre-bar">
+    {% for g in all_genres %}
+      <a class="genre-btn" href="{{ url_for('genre', genre=g) }}">{{ g }}</a>
+    {% endfor %}
+  </div>
+</nav>
+
+

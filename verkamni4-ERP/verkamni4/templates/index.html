@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Forsiða{% endblock %}
+{% block content %}
+<h2>forsiða</h2>
+<div class="grid">
+  {% for item in listi %}
+    <article>
+      <h3>{{ item['name'] }}</h3>
+      <a href="{{ url_for('show', id=item['id']) }}">
+        {% if item['image'] %}
+          <img src="{{ item['image']['medium'] }}" alt="{{ item['name'] }}">
+        {% else %}<p>engin mynd fanst</p>{% endif %}
+      </a>
+    </article>
+  {% endfor %}
+</div>
+{% endblock %}
