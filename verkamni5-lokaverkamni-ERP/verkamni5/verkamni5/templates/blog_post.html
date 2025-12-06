@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} - Hundalíf{% endblock %}
+{% block content %}
+  <article>
+    <h1>{{ post.title }}</h1>
+    <div class="meta">{{ post.category }} • {{ post.created[:10] }}</div>
+    {% if post.image %}
+      <img src="{{ post.image }}" alt="mynd" style="max-width:100%">
+    {% endif %}
+    <div class="content">{{ post.content }}</div>
+  </article>
+{% endblock %}

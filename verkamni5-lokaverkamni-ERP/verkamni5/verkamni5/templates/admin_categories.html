@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+  <h1>Flokkar</h1>
+
+  <h2>Bæta við nýjum flokki</h2>
+  <form method="POST" action="{{ url_for('manage_categories') }}">
+    <label for="category_name">Nýr flokkur:</label>
+    <input type="text" id="category_name" name="category_name" placeholder="Sláðu inn nafn flokks" required>
+    <button type="submit">Bæta við</button>
+  </form>
+
+  <hr>
+
+  <h2>Allir flokkar</h2>
+  {% if categories %}
+    <ul>
+      {% for category in categories %}
+        <li>
+          <a href="{{ url_for('category_page', category_name=category['name']) }}">
+            {{ category['name'] }}
+          </a>
+          <form method="POST" action="{{ url_for('delete_category', category_name=category['name']) }}" style="display:inline;">
+            <button type="submit" onclick="return confirm('Ertu viss um að eyða þessum flokki?')">Eyða</button>
+          </form>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Engir flokkar til staðar.</p>
+  {% endif %}
+</div>
+{% endblock %}
+

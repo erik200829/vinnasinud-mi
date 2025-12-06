@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Blogg - Hundalíf{% endblock %}
+{% block content %}
+  <h1>Blogg</h1>
+  {% if posts %}
+    <ul class="posts">
+      {% for p in posts %}
+        <li>
+          <a href="{{ url_for('post_detail', doc_id=p.doc_id) }}"><strong>{{ p.title }}</strong></a>
+          <div class="meta">{{ p.category }} • {{ p.created[:10] }}</div>
+          <p>{{ p.content[:200] }}{% if p.content|length > 200 %}...{% endif %}</p>
+        </li>
+      {% endfor %}
+    </ul>
+    <div class="pagination">
+      {% if page > 1 %}
+        <a href="{{ url_for('blog_list', page=page-1, q=q) }}">Fyrri</a>
+      {% endif %}
+      <span>Síða {{ page }} af {{ pages }}</span>
+      {% if page < pages %}
+        <a href="{{ url_for('blog_list', page=page+1, q=q) }}">Næst</a>
+      {% endif %}
+    </div>
+  {% else %}
+    <p>Engar færslur fundust.</p>
+  {% endif %}
+{% endblock %}

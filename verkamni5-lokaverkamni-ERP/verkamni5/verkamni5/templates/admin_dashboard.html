@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Stjórnborð - Hundalíf{% endblock %}
+{% block content %}
+  <h1>Stjórnborð</h1>
+  <a href="{{ url_for('new_post') }}" class="btn">Bæta við færslu</a>
+  <a href="{{ url_for('manage_categories') }}" class="btn">Bæta við flokkum</a>
+
+  <table>
+    <thead><tr><th>ID</th><th>Titill</th><th>Flokkur</th><th>Dagsetning</th><th>Aðgerðir</th></tr></thead>
+    <tbody>
+      {% for p in posts %}
+        <tr>
+          <td>{{ p.doc_id }}</td>
+          <td>{{ p.title }}</td>
+          <td>{{ p.category }}</td>
+          <td>{{ p.created[:10] }}</td>
+          <td>
+            <a href="{{ url_for('edit_post', doc_id=p.doc_id) }}">Breyta</a>
+            <form style="display:inline" method="post" action="{{ url_for('delete_post', doc_id=p.doc_id) }}">
+              <button class="btn" type="submit" onclick="return confirm('Eyða færslu?')">Eyða</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

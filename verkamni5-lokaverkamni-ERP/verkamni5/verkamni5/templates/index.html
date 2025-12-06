@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Forsíða - Hundalíf{% endblock %}
+{% block content %}
+  <h1>Hundalíf</h1>
+  <section>
+    <h2>Mynd dagsins</h2>
+    {% if dog_image %}
+      <img src="{{ dog_image }}" alt="hundamynd" style="max-width:100%; border-radius:8px;">
+    {% else %}
+      <p>Engin mynd núna.</p>
+    {% endif %}
+  </section>
+  <section>
+    <h2>Funny fact</h2>
+    <p>{{ dog_fact }}</p>
+  </section>
+
+{% endblock %}

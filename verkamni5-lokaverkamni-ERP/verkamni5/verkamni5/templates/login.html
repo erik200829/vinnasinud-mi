@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Innskráning{% endblock %}
+{% block content %}
+  <h1>Innskráning</h1>
+  <form method="post">
+    <label>Netfang</label>
+    <input class="form-input" name="email" type="email" required>
+    <label>Lykilorð</label>
+    <input class="form-input" name="password" type="password" required>
+    <button class="btn" type="submit">Skrá inn</button>
+  </form>
+{% endblock %}

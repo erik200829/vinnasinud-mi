@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Bæta við færslu' if action=='new' else 'Breyta færslu' }}{% endblock %}
+{% block content %}
+  <h1>{{ 'Bæta við færslu' if action=='new' else 'Breyta færslu' }}</h1>
+  <form method="post" enctype="multipart/form-data">
+    <label>Titill</label>
+    <input class="form-input" name="title" value="{{ post.title if post else '' }}" required>
+    
+<label>Flokkur</label>
+<select name="category" required>
+  <option value="">Veldu flokk</option>
+  {% for cat in categories %}
+    <option value="{{ cat }}" {% if post and post.category == cat %}selected{% endif %}>{{ cat }}</option>
+  {% endfor %}
+</select>
+
+    <label>Mynd (valfrjáls)</label>
+    <input type="file" name="image" accept="image/*">
+    <label>Innihald</label>
+    <textarea class="form-input" name="content" rows="8" required>{{ post.content if post else '' }}</textarea>
+    <button class="btn" type="submit">Vista</button>
+  </form>
+{% endblock %}

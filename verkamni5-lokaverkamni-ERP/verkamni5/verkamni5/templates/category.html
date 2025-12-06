@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ category_name }}{% endblock %}
+
+{% block content %}
+  <h1>Flokkur: {{ category_name }}</h1>
+
+  {% if posts %}
+    {% for post, img in zip(posts, images) %}
+      <article>
+        <img src="{{ post.image or img }}" alt="mynd" style="max-width:200px;">
+        <h3><a href="{{ url_for('post_detail', doc_id=post.doc_id) }}">{{ post.title }}</a></h3>
+        <p>{{ post.content[:150] }}...</p>
+      </article>
+    {% endfor %}
+  {% else %}
+    <p>Engar færslur í þessum flokki.</p>
+  {% endif %}
+{% endblock %}
+
