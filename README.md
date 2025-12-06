@@ -9,7 +9,7 @@
   <p>Velkomin á síðuna mína.</p>
 
   <!-- Takkur sem fer á aðra síðu -->
-  <a href="index.html">
+  <a href="verkamni7lokaverkamniERP/index.html">
     <button>Farðu á aðra síðu</button>
   </a>
 </body>
