@@ -1,0 +1,37 @@
+<html>
+    <head>       
+        <title>{{ title }}</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <nav>Siða um mig</nav>
+        <header><h1>{{ intro }}</h1></header>
+        <main>
+            <section class="col-2">
+
+                <figure><img src="{{ url_for('static', filename='mynd1.png') }}" alt="mynd1.png" class="mynd"></figure>
+                    
+                    <ol>
+                        {% for a, b in afangar.items() %}
+                        <li> > <a href="{{ a }}"> {{ b }} </a></li>
+                        {% endfor %}
+                    </ol>
+
+                </div>
+
+        <nav>
+        <a href="{{ url_for('index') }}">Forsiða</a> |
+        <a href="{{ url_for('siða2') }}">ahugamalinu minn</a>
+    </nav>            
+
+            </section>
+        </main>
+
+
+
+
+
+</body>
+</html>

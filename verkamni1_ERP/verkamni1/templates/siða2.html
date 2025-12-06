@@ -1,0 +1,35 @@
+<html>
+    <head>       
+        <title>{{ title }}</title>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+    </head>
+    <body>
+        <nav>Siða um mig</nav>
+        <header><h1>{{ intro }}</h1></header>
+
+    
+
+    <main>
+        <h2>ahugamalinu</h2>
+        <ol>
+            {% for nr, texti in vefhonnun.items() %}
+                <li>{{ texti }}</li>
+            {% endfor %}
+        </ol>
+    </main>
+
+    <figure><img src="{{ url_for('static', filename='Skjámynd 2025-04-07 152947.png') }}" alt="verkamni1/static/Skjámynd 2025-04-07 152947.png" class="mynd"></figure>
+
+
+
+         <nav>
+        <a href="{{ url_for('index') }}">Forsiða</a> |
+        <a href="{{ url_for('siða2') }}">ahugamalinu min</a>
+    </nav>
+
+
+
+</body>
+</html>
